@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { generate } from "shortid";
 
 // Helper components and utils.
 import { TodoForm, TodoList, TodoFilter } from "./components/todo";
@@ -44,19 +43,20 @@ class App extends Component {
 
     if (todoText.trim() !== "") {
       const newTodo = {
-        id: generate(),
         task: this.state.todoText,
         completed: false
       };
-      this.setState({
-        todos: [...todos, newTodo],
-        error: null
-      });
 
-      // Add the new todo to our endpoint as well.
-      processTodo("Add", newTodo).then(() =>
-        this.notifyUser("Added new Todo.")
-      );
+      processTodo("Add", newTodo).then(res => {
+        res.json().then(data => {
+          newTodo._id = data.id;
+          this.setState({
+            todos: [...todos, newTodo],
+            error: null
+          });
+          this.notifyUser("Added new Todo.");
+        });
+      });
     } else {
       this.setState({ error: new Error("Please enter a valid todo!") });
     }
@@ -64,11 +64,16 @@ class App extends Component {
 
   // Remove a todo from existing list of todos.
   removeTodo = id => {
+    if (id === undefined) {
+      this.notifyUser("Could not find the id of the note to delete. Try refreshing the page and trying again.");
+      return;
+    }
+
     const { todos } = this.state;
 
-    const todo = todos.find(todo => todo.id === id);
+    const todo = todos.find(todo => todo._id === id);
 
-    const newTodos = todos.filter(todo => todo.id !== id);
+    const newTodos = todos.filter(todo => todo._id !== id);
     this.setState({ todos: newTodos });
 
     // Remove the todo from our endpoint as well.
@@ -77,12 +82,17 @@ class App extends Component {
 
   // Do a strike-through on/off effect for toggling the todo.
   toggleTodo = id => {
+    if (id === undefined) {
+      this.notifyUser("Could not find the id of the note to delete. Try refreshing the page and trying again.");
+      return;
+    }
+
     const { todos } = this.state;
 
-    const todo = todos.find(todo => todo.id === id);
+    const todo = todos.find(todo => todo._id === id);
 
     const updatedTodos = todos.map(todo => {
-      if (todo.id === id) {
+      if (todo._id === id) {
         return { ...todo, completed: !todo.completed };
       } else {
         return todo;

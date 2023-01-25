@@ -1,0 +1,10 @@
+node_modules
+npm-debug.log
+
+# Custom things for the app
+.gitignore
+README.md
+
+# More annoying editor files
+.idea
+.vscode

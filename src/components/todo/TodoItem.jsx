@@ -9,7 +9,7 @@ export const TodoItem = ({ todo, toggleTodo, removeTodo }) => {
         <span className="text-teal-600 ml-8">
           {todo.completed ? (
             <svg
-              onClick={() => toggleTodo(todo.id)}
+              onClick={() => toggleTodo(todo._id)}
               className="fill-current h-4 w-4 cursor-pointer"
               viewBox="0 0 20 20"
             >
@@ -17,7 +17,7 @@ export const TodoItem = ({ todo, toggleTodo, removeTodo }) => {
             </svg>
           ) : (
             <svg
-              onClick={() => toggleTodo(todo.id)}
+              onClick={() => toggleTodo(todo._id)}
               className="fill-current h-4 w-4 cursor-pointer"
               viewBox="0 0 20 20"
             >
@@ -27,7 +27,7 @@ export const TodoItem = ({ todo, toggleTodo, removeTodo }) => {
         </span>
         <span className="text-red-600 ml-4">
           <svg
-            onClick={() => removeTodo(todo.id)}
+            onClick={() => removeTodo(todo._id)}
             className="h-4 w-4 fill-current cursor-pointer"
             viewBox="0 0 20 20"
           >

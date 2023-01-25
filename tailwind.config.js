@@ -1,6 +1,9 @@
 // Minimal tailwind config to start with.
 module.exports = {
-  purge: [],
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     extend: {}
   },

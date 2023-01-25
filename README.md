@@ -1,5 +1,9 @@
 ## ✨ React/Tailwind Todo App
 
+Based on the original [here](https://github.com/jvikraman/react-tailwind-todo-app) but modified to be on updated dependencies
+and to interact with the [sample Koa Rest App](https://github.com/george-wilson-al/koa-rest). Between these two applications
+is a modern MERN application designed for testing purposes.
+
 ---
 
 ### A simple react todo app with the following features:
@@ -15,9 +19,5 @@
 
 - Clone this repo to your local and do an `npm or yarn install`
 - Then use either `npm or yarn start` to serve the application at `localhost` port `3000`
-- If you like to simulate a local JSON server endpoint for todo CRUD operations,
-  then run `json-server -w src/api/server.js -p 4000` and this will spin-up an endpoint at `http://localhost:4000`
-- The endpoint exposes a `todos` resource at url --> `http://localhost:4000/todos`
-- If you don't have `json-server` installed globally, you can do so by running `npm install -g json-server`
 
 #### 🎉 💥 🥳 And that's it...You should now have a simple react/tailwind todo app up and running !!
