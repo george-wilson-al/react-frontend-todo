@@ -28,4 +28,6 @@ docker exec -it mongo-db mongosh mongodb://127.0.0.1:27017/dummy --eval 'db.disa
 docker exec -it mongo-db mongosh mongodb://127.0.0.1:27017/dummy --eval 'db.createCollection("todos")'
 ```
 
+Once complete the server will be available on localhost:3000 in your browser
+
 #### 🎉 💥 🥳 And that's it...You should now have a simple react/tailwind todo app up and running !!
