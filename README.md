@@ -19,5 +19,13 @@ is a modern MERN application designed for testing purposes.
 
 - Clone this repo to your local and do an `npm or yarn install`
 - Then use either `npm or yarn start` to serve the application at `localhost` port `3000`
+- To run the full combined stack you can use docker compose. From this directory run `docker compose up -d`
+then run the following things to provision the mongo db
+
+```sh
+docker exec -it mongo-db mongosh mongodb://127.0.0.1:27017/dummy --eval 'disableTelemetry()'
+docker exec -it mongo-db mongosh mongodb://127.0.0.1:27017/dummy --eval 'db.disableFreeMonitoring()'
+docker exec -it mongo-db mongosh mongodb://127.0.0.1:27017/dummy --eval 'db.createCollection("todos")'
+```
 
 #### 🎉 💥 🥳 And that's it...You should now have a simple react/tailwind todo app up and running !!
