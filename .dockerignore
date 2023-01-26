@@ -1,6 +1,9 @@
 node_modules
 npm-debug.log
 
+# Local build assets
+dist
+
 # Custom things for the app
 .gitignore
 README.md
