@@ -6,7 +6,7 @@ services:
     -  3000:80
    container_name: mern-ui
    networks:
-    -  mern-stack-net
+    -  mkrn-stack-net
    depends_on:
     - api
    stdin_open: true
@@ -18,7 +18,7 @@ services:
      - 1337:1337
    container_name: mern-api
    networks:
-     - mern-stack-net
+     - mkrn-stack-net
    environment:
      - MONGO_CONNECTION_STRING=mongodb://db:27017/
    depends_on:
@@ -30,12 +30,12 @@ services:
       - 27017:27017
     container_name: mongo-db
     networks:
-      - mern-stack-net
+      - mkrn-stack-net
     volumes:
       - mongo-data:/data/db
 
 networks:
-  mern-stack-net:
+  mkrn-stack-net:
     driver: bridge
 
 volumes:

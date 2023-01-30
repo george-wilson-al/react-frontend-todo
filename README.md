@@ -2,7 +2,7 @@
 
 Based on the original [here](https://github.com/jvikraman/react-tailwind-todo-app) but modified to be on updated dependencies
 and to interact with the [sample Koa Rest App](https://github.com/george-wilson-al/koa-rest). Between these two applications
-is a modern MERN application designed for testing purposes.
+is a modern MERN application (well really MKRN) designed for testing purposes.
 
 ---
 
